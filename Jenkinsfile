@@ -1,9 +1,10 @@
 pipeline {
 
    parameters {
-    choice(name: 'action', choices: 'create\ndestroy', description: 'Create/update or destroy the eks cluster.')
-	string(name: 'cluster', defaultValue : 'unzer', description: "EKS cluster name;eg unzer creates cluster named eks-unzer.")
-  }
+  choice choices: ['create', 'destroy'], description: 'Create or destroy the eks cluster', name: 'action'
+  string defaultValue: 'unzer_cluster', description: 'EKS cluster name: unzer_cluster', name: 'cluster', trim: true
+}
+
   
   agent any
 
